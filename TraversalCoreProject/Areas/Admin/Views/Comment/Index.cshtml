@@ -1,0 +1,47 @@
+﻿@model List<Comment>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+
+    int count = 0;
+}
+
+<!-- Basic Bootstrap Table -->
+<div class="card">
+    <div class="card-header d-flex justify-content-between align-items-center">
+        <h5 class="mb-0">YORUM LİSTESİ</h5>
+        @* <a class="btn btn-primary float-end" href="/Admin/Destination/AddDestination/"><i class="bx bx-plus me-1"></i> Yeni Rota Oluştur</a> *@
+    </div>
+
+    <div class="table-responsive text-nowrap">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>KULLANICI</th>
+                    <th>ROTA</th>
+                    <th>TARİH</th>
+                    <th>EYLEMLER</th>
+                </tr>
+            </thead>
+            <tbody class="table-border-bottom-0">
+                @foreach (var item in Model)
+                {
+                    count++;
+                    <tr>
+                        <td>@count</td>
+                        <td>@item.CommentUser</td>
+                        <td>@item.Destination.City</td>
+                        <td>@(((DateTime)item.CommentDate).ToString("dd-MMMM-yyyy"))</td>
+                        <td>
+                            <a class="btn btn-sm btn-danger" href="/Admin/Comment/DeleteComment/@item.CommentID"><i class="bx bxs-trash me-1"></i> Sil</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+<!--/ Basic Bootstrap Table -->
+

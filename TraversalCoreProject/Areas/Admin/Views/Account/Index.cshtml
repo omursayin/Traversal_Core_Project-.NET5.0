@@ -1,0 +1,59 @@
+﻿@model AccountViewModel
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+@if (TempData["AlertMessage"] != null)
+{
+    <div class="alert alert-success alert-dismissible col-md-4" role="alert">
+        @TempData["AlertMessage"]
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Kapat"></button>
+    </div>
+}
+
+<div class="card mb-4">
+    <div class="card-header d-flex justify-content-between align-items-center">
+        <h5 class="mb-0">Unit Of Work Personel Prim Transferi</h5>
+    </div>
+    <div class="card-body">
+        <form method="post">
+            <div class="mb-3">
+                <label class="form-label" for="basic-icon-default-company">GÖNDEREN</label>
+                <div class="input-group input-group-merge">
+                    <span id="basic-icon-default-company2" class="input-group-text">
+                        <i class="bx bx-user"></i>
+                    </span>
+                    <input type="text" asp-for="SenderID" class="form-control" />
+                </div>
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="basic-icon-default-company">ALICI</label>
+                <div class="input-group input-group-merge">
+                    <span id="basic-icon-default-company2" class="input-group-text">
+                        <i class="bx bx-message-square-detail"></i>
+                    </span>
+                    <input type="text" asp-for="ReceiverID" class="form-control" />
+                </div>
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="basic-icon-default-fullname">MİKTAR</label>
+                <div class="input-group input-group-merge">
+                    <span id="basic-icon-default-fullname2" class="input-group-text">
+                        <i class="bx bx-calendar"></i>
+                    </span>
+                    <input type="text" asp-for="Amount" class="form-control" />
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Gönder</button>
+        </form>
+    </div>
+</div>
+
+<script>
+    window.setTimeout(function () {
+        $(".alert").fadeTo(500, 0).slideUp(500, function () {
+            $(this).remove();
+        });
+    }, 4000);
+</script>

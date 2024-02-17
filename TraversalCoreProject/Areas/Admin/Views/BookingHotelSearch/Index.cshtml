@@ -1,0 +1,70 @@
+﻿@model IEnumerable<BookingHotelSearchViewModel.Result>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+
+    int count = 0;
+    double score;
+}
+
+<!-- Basic Bootstrap Table -->
+<div class="card">
+    <div class="card-header d-flex justify-content-between align-items-center">
+        <h5 class="mb-0">Booking Otel Rezervasyon Sayfası</h5>
+    </div>
+    <div class="card-header d-flex justify-content-between align-items-center">
+        <h5>Arama Yapılan Şehir: Paris/Fransa</h5>
+    </div>
+
+    <div class="table-responsive text-nowrap">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>OTEL ADI</th>
+                    <th>OTEL PUANI</th>
+                    <th>OTEL DEĞERLENDİRMESİ</th>
+                    <th>DETAYLAR</th>
+                    @* <th>EYLEMLER</th> *@
+                </tr>
+            </thead>
+            <tbody class="table-border-bottom-0">
+                @foreach (var item in Model)
+                {
+                    count++;
+                    <tr>
+                        <td>@count</td>
+                        <td>@item.name</td>
+                        @{
+                            score = double.Parse(item.reviewScore.ToString()) / 10;
+                        }
+                        <td>@score</td>
+                        @{
+                            if (item.reviewScoreWord == "Very good")
+                            {
+                                <td>Çok İyi</td>
+                            }
+                            if (item.reviewScoreWord == "Good")
+                            {
+                                <td>İyi</td>
+                            }
+                            if (item.reviewScoreWord == "Fabulous")
+                            {
+                                <td>Harika</td>
+                            }
+                            <td>@item.reviewScoreWord</td>
+                        }
+                        <td><a href="#" class="btn btn-sm btn-outline-primary">Detaylar</a></td>
+                        <td>
+                            @* <a class="btn btn-sm btn-danger" href="/Admin/Announcement/DeleteAnnouncement/@item.AnnouncementID"><i class="bx bxs-trash me-1"></i> Sil</a>
+                            <a class="btn btn-sm btn-warning" href="/Admin/Announcement/UpdateAnnouncement/@item.AnnouncementID"><i class="bx bx-edit-alt me-1"></i> Güncelle</a> *@
+                            @* <a class="btn btn-primary" href="#"><i class="bx bx-show me-1"></i> Detaylar</a> *@
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+<!--/ Basic Bootstrap Table -->
+

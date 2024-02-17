@@ -1,0 +1,45 @@
+﻿@model List<AppUser>
+@{
+    ViewData["Title"] = "UserList";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+
+    int count = 0;
+}
+
+<!-- Basic Bootstrap Table -->
+<div class="card">
+    <div class="card-header d-flex justify-content-between align-items-center">
+        <h5 class="mb-0">KULLANICI LİSTESİ</h5>
+        <a class="btn btn-primary float-end" href="/Admin/Destination/AddDestination/"><i class="bx bx-plus me-1"></i> Yeni Rota Oluştur</a>
+    </div>
+
+    <div class="table-responsive text-nowrap">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>KULLANICI ADI</th>
+                    <th>ROL ATA</th>
+                    @* <th>EYLEMLER</th> *@
+                </tr>
+            </thead>
+            <tbody class="table-border-bottom-0">
+                @foreach (var item in Model)
+                {
+                    count++;
+                    <tr>
+                        <td>@count</td>
+                        <td>@item.UserName</td>
+                        <td><a href="/Admin/Role/AssignRole/@item.Id" class="btn btn-sm btn-outline-primary">Rol Ata</a></td>
+                        @* <td>
+                            <a class="btn btn-sm btn-danger" href="/Admin/Role/DeleteDestination/@item.Id"><i class="bx bxs-trash me-1"></i> Sil</a>
+                            <a class="btn btn-sm btn-warning" href="/Admin/Role/UpdateDestination/@item.Id"><i class="bx bx-edit-alt me-1"></i> Güncelle</a>
+                            <a class="btn btn-primary" href="#"><i class="bx bx-show me-1"></i> Detaylar</a>
+                        </td> *@
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+<!--/ Basic Bootstrap Table -->

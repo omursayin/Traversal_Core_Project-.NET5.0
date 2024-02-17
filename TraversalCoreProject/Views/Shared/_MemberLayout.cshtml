@@ -1,0 +1,98 @@
+﻿@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer localizer
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html class="loading" lang="tr" data-textdirection="ltr">
+
+@await Html.PartialAsync("/Views/MemberLayoutPartial/_HeadPartial.cshtml")
+
+<body class="vertical-layout vertical-menu 2-columns   menu-expanded fixed-navbar" data-open="click" data-menu="vertical-menu" data-color="bg-gradient-x-purple-blue" data-col="2-columns">
+
+    @await Html.PartialAsync("/Views/MemberLayoutPartial/_NavbarPartial.cshtml")
+
+    <div class="main-menu menu-fixed menu-light menu-accordion menu-shadow " data-scroll-to-active="true" data-img="/Chameleon/theme-assets/images/backgrounds/02.jpg">
+        <div class="navbar-header">
+            <ul class="nav navbar-nav flex-row">
+                <li class="nav-item mr-auto">
+                    <a class="navbar-brand" href="/Member/Dashboard/Index/">
+                        <img class="brand-logo" alt="Chameleon admin logo" src="~/Chameleon/theme-assets/images/logo/logo.png" />
+                        <h3 class="brand-text">TRAVERSAL</h3>
+                    </a>
+                </li>
+                <li class="nav-item d-md-none"><a class="nav-link close-navbar"><i class="ft-x"></i></a></li>
+            </ul>
+        </div>
+        <div class="main-menu-content">
+            <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
+                <li class="active">
+                    <a href="/Member/Dashboard/"><i class="ft-home"></i><span class="menu-title" data-i18n="">Dashboard</span></a>
+                </li>
+                <li class="nav-item">
+                    <a href="/Member/Profile/Index/"><i class="ft-user"></i><span class="menu-title" data-i18n="">@localizer["Profilim"]</span></a>
+                </li>
+                <li class="nav-item">
+                    <a href="/Member/Reservation/NewReservation/"><i class="ft-plus-square"></i><span class="menu-title" data-i18n="">@localizer["Yeni Rezervasyon"]</span></a>
+                </li>
+                <li class="nav-item">
+                    <a href="/Member/Reservation/MyCurrentReservation/"><i class="ft-check-square"></i><span class="menu-title" data-i18n="">@localizer["Aktif Rezerv."]</span></a>
+                </li>
+                <li class="nav-item">
+                    <a href="/Member/Reservation/MyApprovalReservation/"><i class="ft-clock"></i><span class="menu-title" data-i18n="">@localizer["Bekleyen Rezerv."]</span></a>
+                </li>
+                <li class="nav-item">
+                    <a href="/Member/Reservation/MyOldReservation/"><i class="ft-x-square"></i><span class="menu-title" data-i18n="">@localizer["Geçmiş Rezerv."]</span></a>
+                </li>
+                <li class="nav-item">
+                    <a href="/Member/Comment/Index/"><i class="ft-message-square"></i><span class="menu-title" data-i18n="">@localizer["Yorumlarım"]</span></a>
+                </li>
+                <li class="nav-item">
+                    <a href="/Member/Destination/Index/"><i class="ft-map"></i><span class="menu-title" data-i18n="">@localizer["Tur Rotaları"]</span></a>
+                </li>
+                <li class="nav-item">
+                    <a href="/Default/Index/" target="_blank"><i class="ft-external-link"></i><span class="menu-title" data-i18n="">@localizer["Siteye Git"]</span></a>
+                </li>
+                <li class="nav-item">
+                    <a href="#"><i class="ft-log-out"></i><span class="menu-title" data-i18n="">@localizer["Çıkış Yap"]</span></a>
+                </li>
+            </ul>
+        </div>
+        <div class="navigation-background"></div>
+    </div>
+
+    <div class="app-content content">
+        <div class="content-wrapper">
+            <div class="content-wrapper-before"></div>
+            <div class="content-header row">
+                <div class="content-header-left col-md-4 col-12 mb-2">
+                    <h3 class="content-header-title">Traversal</h3>
+                </div>
+                <div class="content-header-right col-md-8 col-12">
+                    <div class="breadcrumbs-top float-md-right">
+                        <div class="breadcrumb-wrapper mr-1">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item">
+                                    <a href="#">Üye</a>
+                                </li>
+                                <li class="breadcrumb-item active">
+                                    Üye Paneli
+                                </li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="content-body">
+                @RenderBody()
+            </div>
+        </div>
+    </div>
+
+    @await Html.PartialAsync("/Views/MemberLayoutPartial/_FooterPartial.cshtml")
+
+    @await Html.PartialAsync("/Views/MemberLayoutPartial/_ScriptPartial.cshtml")
+
+</body>
+</html>

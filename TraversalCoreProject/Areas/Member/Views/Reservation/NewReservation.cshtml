@@ -1,0 +1,56 @@
+﻿@model Reservation
+@{
+    ViewData["Title"] = "NewReservation";
+    Layout = "~/Views/Shared/_MemberLayout.cshtml";
+}
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h2>Yeni Rezervasyon Sayfası</h2>
+                <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
+                <div class="heading-elements">
+                    <ul class="list-inline mb-0">
+                        <li><a data-action="collapse"><i class="ft-minus"></i></a></li>
+                        <li><a data-action="reload"><i class="ft-rotate-cw"></i></a></li>
+                        <li><a data-action="expand"><i class="ft-maximize"></i></a></li>
+                        <li><a data-action="close"><i class="ft-x"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="card-content collapse show">
+                <div class="card-body">
+                    <p class="card-text">Rezervasyon oluşturmak için aşağıdaki formu doldurunuz. </p>
+                    <p><span class="text-bold-600"></span> </p>
+                    <form class="form">
+                        <div class="form-body">
+                            <div class="form-group">
+                                <label for="donationinput1" class="sr-only">Lokasyon</label>
+                                @Html.DropDownListFor(x => x.Destination, (List<SelectListItem>)ViewBag.v, new { @class = "form-control" })
+                            </div>
+                            <div class="form-group">
+                                <label for="donationinput2" class="sr-only">Kişi Sayısı</label>
+                                <input type="number" id="donationinput2" class="form-control" placeholder="Kişi sayısı" name="lanme">
+                            </div>
+                            <div class="form-group">
+                                <label for="donationinput3" class="sr-only">Tarih</label>
+                                <input type="date" id="donationinput3" class="form-control" placeholder="Rezervasyon tarihi" name="">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="donationinput7" class="sr-only">Ek Talepler</label>
+                                <textarea id="donationinput7" rows="5" class="form-control square" name="message" placeholder="Talepleriniz..."></textarea>
+                            </div>
+
+                        </div>
+                        <div class="form-actions center">
+                            <button type="submit" class="btn btn-outline-primary">KAYDET</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

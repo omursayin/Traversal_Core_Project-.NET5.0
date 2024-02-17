@@ -1,0 +1,69 @@
+﻿@model VisitorViewModel
+@{
+    ViewData["Title"] = "UpdateVisitor";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="card mb-4">
+    <div class="card-header d-flex justify-content-between align-items-center">
+        <h5 class="mb-0">Yeni Ziyaretçi Güncelleme Sayfası</h5>
+    </div>
+    <div class="card-body">
+        <form method="post">
+            <input type="hidden" asp-for="VisitorID" />
+            <div class="mb-3">
+                <label class="form-label" for="basic-icon-default-company">ZİYARETÇİ ADI</label>
+                <div class="input-group input-group-merge">
+                    <span id="basic-icon-default-company2" class="input-group-text">
+                        <i class="bx bxs-user"></i>
+                    </span>
+                    <input type="text" asp-for="Name" class="form-control" />
+                </div>
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="basic-icon-default-fullname">ZİYARETÇİ SOYADI</label>
+                <div class="input-group input-group-merge">
+                    <span id="basic-icon-default-fullname2" class="input-group-text">
+                        <i class="bx bxs-user"></i>
+                    </span>
+                    <input type="text" asp-for="Surname" class="form-control" />
+                </div>
+                <span asp-validation-for="Surname" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="basic-icon-default-fullname">ŞEHİR</label>
+                <div class="input-group input-group-merge">
+                    <span id="basic-icon-default-fullname2" class="input-group-text">
+                        <i class="bx bxs-buildings"></i>
+                    </span>
+                    <input type="text" asp-for="City" class="form-control" />
+                </div>
+                <span asp-validation-for="City" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="basic-icon-default-fullname">ÜLKE</label>
+                <div class="input-group input-group-merge">
+                    <span id="basic-icon-default-fullname2" class="input-group-text">
+                        <i class="bx bxs-flag-alt"></i>
+                    </span>
+                    <input type="text" asp-for="Country" class="form-control" />
+                </div>
+                <span asp-validation-for="Country" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="basic-icon-default-fullname">E_MAİL</label>
+                <div class="input-group input-group-merge">
+                    <span id="basic-icon-default-fullname2" class="input-group-text">
+                        <i class="bx bxs-envelope"></i>
+                    </span>
+                    <input type="text" asp-for="Mail" class="form-control" />
+                </div>
+                <span asp-validation-for="Mail" class="text-danger"></span>
+            </div>
+            <button type="submit" class="btn btn-primary">Kaydet</button>
+        </form>
+    </div>
+</div>
+
+

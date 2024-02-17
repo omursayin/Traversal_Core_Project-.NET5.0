@@ -1,0 +1,53 @@
+﻿@model List<AppUser>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+
+    int count = 0;
+}
+
+<!-- Basic Bootstrap Table -->
+<div class="card">
+    <div class="card-header d-flex justify-content-between align-items-center">
+        <h5 class="mb-0">KULLANICI LİSTESİ</h5>
+        <a class="btn btn-primary float-end" href="/Login/SignUp/"><i class="bx bx-plus me-1"></i> Yeni Kullancı Oluştur</a>
+    </div>
+
+    <div class="table-responsive text-nowrap">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>AD SOYAD</th>
+                    <th>KULLANICI ADI</th>
+                    <th>E-MAİL</th>
+                    <th>YORUMLAR</th>
+                    <th>TUR GEÇMİŞİ</th>
+                    <th>EYLEMLER</th>
+                </tr>
+            </thead>
+            <tbody class="table-border-bottom-0">
+                @foreach (var item in Model)
+                {
+                    count++;
+                    <tr>
+                        <td>@count</td>
+                        <td>@item.Name @item.Surname</td>
+                        <td>@item.UserName</td>
+                        <td>@item.Email</td>
+                        <td><a href="/Admin/User/CommentUser/@item.Id" class="btn btn-sm btn-outline-primary">Yorumlar</a></td>
+                        <td><a href="/Admin/User/ReservationUser/@item.Id" class="btn btn-sm btn-outline-info">Tur Geçmişi</a></td>
+                        <td>
+                            <a class="btn btn-sm btn-danger" href="/Admin/User/DeleteUser/@item.Id"><i class="bx bxs-trash me-1"></i> Sil</a>
+                            <a class="btn btn-sm btn-warning" href="/Admin/User/UpdateUser/@item.Id"><i class="bx bx-edit-alt me-1"></i> Güncelle</a>
+                            @* <a class="btn btn-primary" href="#"><i class="bx bx-show me-1"></i> Detaylar</a> *@
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+<!--/ Basic Bootstrap Table -->
+

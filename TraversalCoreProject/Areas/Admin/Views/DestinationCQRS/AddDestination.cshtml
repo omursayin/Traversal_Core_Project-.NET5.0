@@ -1,0 +1,52 @@
+﻿@model CreateDestinationCommand
+@{
+    ViewData["Title"] = "AddDestination";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="card mb-4">
+    <div class="card-header d-flex justify-content-between align-items-center">
+        <h5 class="mb-0">Yeni Rota Oluşturma Sayfası (CQRS)</h5>
+    </div>
+    <div class="card-body">
+        <form method="post">
+            <div class="mb-3">
+                <label class="form-label" for="basic-icon-default-company">ŞEHİR</label>
+                <div class="input-group input-group-merge">
+                    <span id="basic-icon-default-company2" class="input-group-text">
+                        <i class="bx bx-buildings"></i>
+                    </span>
+                    <input type="text" asp-for="City" class="form-control" />
+                </div>
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="basic-icon-default-fullname">SEYAHAT SÜRESİ</label>
+                <div class="input-group input-group-merge">
+                    <span id="basic-icon-default-fullname2" class="input-group-text">
+                        <i class="bx bx-calendar"></i>
+                    </span>
+                    <input type="text" asp-for="DayNight" class="form-control" />
+                </div>
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="basic-icon-default-email">FİYAT</label>
+                <div class="input-group input-group-merge">
+                    <span class="input-group-text">
+                        <i class="bx bx-dollar"></i>
+                    </span>
+                    <input type="text" asp-for="Price" class="form-control" />
+                </div>
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="basic-icon-default-message">KAPASİTE</label>
+                <div class="input-group input-group-merge">
+                    <span id="basic-icon-default-message2" class="input-group-text">
+                        <i class='bx bx-exit-fullscreen'></i>
+                    </span>
+                    <input type="text" asp-for="Capacity" class="form-control" />
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Kaydet</button>
+        </form>
+    </div>
+</div>
